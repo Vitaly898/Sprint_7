@@ -25,7 +25,7 @@ public class CreateCourierTest {
     public void checkCreateCourier(){
         courier = new Courier("testUser00","12345","Igor");
         ValidatableResponse createResponse = courierClient.createCourier(courier);
-        createResponse.log().all()
+        createResponse
                 .assertThat().body("ok", equalTo(true))
                 .and()
                 .statusCode(SC_CREATED);
@@ -38,7 +38,7 @@ public class CreateCourierTest {
     public void checkCreateCourierWithoutName() {
         courier = new Courier("testUser00","12345","Igor");
         ValidatableResponse createResponse = courierClient.createCourier(courier);
-        createResponse.log().all()
+        createResponse
                 .assertThat().body("ok", equalTo(true))
                 .and()
                 .statusCode(SC_CREATED);
